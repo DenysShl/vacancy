@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Vacansions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<main>
+    <div align="center">
+        <h3> Редагування вакансії</h3>
+        <form action="#" th:action="@{/new}" method="POST" th:object="${vacansion}">
+<!--        <form action="#" th:action="@{/new}" method="POST">-->
+            <table border="1" cellpadding="5" th:data="${editVacansion}">
+                <tr>
+                    <td>Id</td>
+                    <td colspan="2" th:text="${editVacansion.getId()}"></td>
+                </tr>
+                <tr>
+                    <td>Дирекція:</td>
+                    <td th:text="${editVacansion.getDyrekcija()}"></td>
+                    <td><input path="dyrekcija"/></td>
+                </tr>
+                <tr>
+                    <td>Департамент:</td>
+                    <td th:text="${editVacansion.getDepartment()}"></td>
+                    <td><input path="department"/></td>
+                </tr>
+                <tr>
+                    <td>Відділ:</td>
+                    <td th:text="${editVacansion.getViddil()}"></td>
+                    <td><input path="viddil"/></td>
+                </tr>
+                <tr>
+                    <td>Посада:</td>
+                    <td th:text="${editVacansion.getPosada()}"></td>
+                    <td><input path="posada"/></td>
+                </tr>
+                <tr>
+                    <td>Кількість:</td>
+                    <td th:text="${editVacansion.getCount()}"></td>
+                    <td><input path="count"/></td>
+                </tr>
+                <tr>
+                    <td>Дата змін:</td>
+                    <td th:text="${editVacansion.getCreated_on()}"></td>
+                    <td><input path="created_on" th:value="${#dates.createNow()}"/></td>
+                </tr>
+                <tr>
+                    <td>Статус:</td>
+                    <td th:text="${editVacansion.status}"></td>
+                    <td><input path="status" th:value="${true}"/></td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" align="center">
+                        <input align="center" type="submit" value="Зберегти"></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</main>
+</body>
+</html>

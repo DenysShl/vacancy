@@ -12,12 +12,15 @@
 <body>
 <main>
     <div align="center">
-        <h2>Список вакансій</h2>
-        <h4>Пошук</h4>
-        <form method="get" action="search">
+        <h3>Список вакансій для редагування!</h3>
+        <h5>Пошук</h5>
+        <form method="get" action="/searchVacancy">
             <input type="text" name="keyword"/>
-            <input type="submit" value="Пошук департаменту"/>
+            <input type="submit" value="Знайти"/>
         </form>
+        <hr>
+        <h4> Створити нову вакансію</h4>
+        <a th:href="@{/create}"> Створити</a>
         <hr>
         <form>
             <table>
@@ -29,21 +32,33 @@
                     <th>Відділ</th>
                     <th>Вакантна посада</th>
                     <th>Чисельність</th>
+                    <th>Дата створення</th>
+                    <th>Статус</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="vacansion : ${vacansionList}">
+                <tr th:each="vacansion : ${result}">
                     <td th:text="${vacansion.getId()}">id</td>
                     <td th:text="${vacansion.getDyrekcija()}">Дирекція</td>
                     <td th:text="${vacansion.getDepartment()}">Департамент</td>
                     <td th:text="${vacansion.viddil}">Відділ</td>
                     <td th:text="${vacansion.posada}">Вакантна посада</td>
                     <td th:text="${vacansion.getCount()}">Чисельність</td>
+                    <td th:text="${vacansion.getCreated_on()}">Дата створенння</td>
+                    <td th:text="${vacansion.status}">Статус</td>
+                    <td>
+                        <a th:href="@{/edit/{id}(id=${vacansion.getId()})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/delete/{id}(id=${vacansion.getId()})}" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </form>
     </div>
 </main>
+<footer>
+
+</footer>
 </body>
 </html>

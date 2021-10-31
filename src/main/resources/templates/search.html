@@ -12,13 +12,13 @@
 <body>
 <main>
     <div align="center">
-        <h2>Список вакансій</h2>
-        <h4>Пошук</h4>
-        <form method="get" action="search">
+        <h2>Список вакансій !</h2>
+        <h3>Пошук</h3>
+        <form method="get" action="/search">
             <input type="text" name="keyword"/>
-            <input type="submit" value="Пошук департаменту"/>
+            <input type="submit" value="Знайти"/>
         </form>
-        <hr>
+        <h2> </h2>
         <form>
             <table>
                 <thead>
@@ -32,7 +32,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="vacansion : ${vacansionList}">
+                <tr th:each="vacansion : ${vacansions}">
                     <td th:text="${vacansion.getId()}">id</td>
                     <td th:text="${vacansion.getDyrekcija()}">Дирекція</td>
                     <td th:text="${vacansion.getDepartment()}">Департамент</td>
@@ -45,5 +45,8 @@
         </form>
     </div>
 </main>
+<footer>
+
+</footer>
 </body>
 </html>
