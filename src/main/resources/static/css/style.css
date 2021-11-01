@@ -6,14 +6,14 @@
 /*    color: darkred;*/
 /*}*/
 
-body {
-    color: #cd0e0e;
-    min-height: 55rem;
-    padding-top: 0.0rem;
-}
-.footer {
-    background-color: rgba(0, 0, 0, 0.2);
-}
+/*body {*/
+/*    color: #cd0e0e;*/
+/*    min-height: 55rem;*/
+/*    padding-top: 0.0rem;*/
+/*}*/
+/*.footer {*/
+/*    background-color: rgba(0, 0, 0, 0.2);*/
+/*}*/
 /*table {*/
 /*    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
 /*    font-size: 14px;*/
@@ -39,15 +39,90 @@ body {
 /*    border-width: 0 1px 1px 0;*/
 /*    border-color: white;*/
 /*}*/
+th:first-child, td:first-child {
+    /*td:first-child {*/
+    text-align: center;
+}
 td {
     background: #D8E6F3;
     border: 1px solid #dddddd;
     padding: 5px;
 }
-th:first-child, td:first-child {
-    /*td:first-child {*/
-    text-align: center;
+/*.table{*/
+/*    text-decoration-color: chocolate;*/
+/*}*/
+/*footer start*/
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;
 }
-.table{
-    text-decoration-color: chocolate;
+
+/* Sticky footer position and size
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
 }
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 400px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 300px;
+}
+
+/* Taller footer on small screens */
+@media (max-width: 567em) {
+    body {
+        margin-bottom: 700px;
+    }
+    .footer {
+        height: 290px;
+    }
+}
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+    padding-top: 30px;
+    background-color: #292c2f;
+    color: #bbb;
+}
+
+footer a {
+    color: #999;
+    text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+    color: #aaa;
+    text-decoration:none;
+    border-bottom:1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
+/*footer end*/
+
+/*header start*/
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/*header end*/

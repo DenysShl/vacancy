@@ -14,7 +14,7 @@
     <div align="center">
         <h3> Редагування вакансії</h3>
         <hr>
-        <form action="#" th:action="@{/new}" method="POST" th:object="${vacansion}">
+        <form action="#" th:action="@{/update/{id}}" th:object="${vacansion}" method="POST">
 <!--        <form action="#" th:action="@{/new}" method="POST">-->
             <table border="1" cellpadding="5" th:data="${editVacansion}">
                 <tr>
