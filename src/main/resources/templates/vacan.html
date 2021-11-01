@@ -49,7 +49,7 @@
                     <td th:text="${vacansion.posada}">Вакантна посада</td>
                     <td th:text="${vacansion.getCount()}">Чисельність</td>
 <!--                    .format(vacansion.getCreated_on(),'dd-MM-yyyy HH:mm:ss')-->
-                    <td th:text="${vacansion.getCreated_on().toLocalDate()}
+                    <td th:text="${vacansion.getCreated_on().toLocalDate()} + '  '
                     + ${vacansion.getCreated_on().toLocalTime()}">Дата створенння</td>
                     <td th:text="${vacansion.status}">Статус</td>
                     <td>

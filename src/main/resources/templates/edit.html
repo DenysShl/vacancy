@@ -16,54 +16,64 @@
         <hr>
         <form action="#" th:action="@{/update/{id}}" th:object="${vacansion}" method="POST">
 <!--        <form action="#" th:action="@{/new}" method="POST">-->
-            <table border="1" cellpadding="5" th:data="${editVacansion}">
-                <tr>
-                    <td>Id</td>
-                    <td colspan="2" th:text="${editVacansion.getId()}"></td>
-                </tr>
-                <tr>
-                    <td>Дирекція:</td>
-                    <td th:text="${editVacansion.getDyrekcija()}"></td>
-                    <td><input path="dyrekcija"/></td>
-                </tr>
-                <tr>
-                    <td>Департамент:</td>
-                    <td th:text="${editVacansion.getDepartment()}"></td>
-                    <td><input path="department"/></td>
-                </tr>
-                <tr>
-                    <td>Відділ:</td>
-                    <td th:text="${editVacansion.getViddil()}"></td>
-                    <td><input path="viddil"/></td>
-                </tr>
-                <tr>
-                    <td>Посада:</td>
-                    <td th:text="${editVacansion.getPosada()}"></td>
-                    <td><input path="posada"/></td>
-                </tr>
-                <tr>
-                    <td>Кількість:</td>
-                    <td th:text="${editVacansion.getCount()}"></td>
-                    <td><input path="count"/></td>
-                </tr>
-                <tr>
-                    <td>Дата змін:</td>
-                    <td th:text="${editVacansion.getCreated_on().toLocalDate()}"></td>
-                    <td><input path="created_on"
-                               th:value="${#dates.format(#dates.createNow(),'dd-MM-yyyy HH:mm:ss')}"/></td>
-                </tr>
-                <tr>
-                    <td>Статус:</td>
-                    <td th:text="${editVacansion.status}"></td>
-                    <td><input hidden path="status" th:value="${true}"/></td>
-                </tr>
+<!--            <table border="1" cellpadding="5" th:data="${editVacansion}">-->
+<!--                <tr>-->
+<!--                    <td>Id</td>-->
+<!--                    <td colspan="2" th:text="${editVacansion.getId()}"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Дирекція:</td>-->
+<!--                    <td th:text="${editVacansion.getDyrekcija()}"></td>-->
+<!--                    <td><input path="dyrekcija"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Департамент:</td>-->
+<!--                    <td th:text="${editVacansion.getDepartment()}"></td>-->
+<!--                    <td><input path="department"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Відділ:</td>-->
+<!--                    <td th:text="${editVacansion.getViddil()}"></td>-->
+<!--                    <td><input path="viddil"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Посада:</td>-->
+<!--                    <td th:text="${editVacansion.getPosada()}"></td>-->
+<!--                    <td><input path="posada"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Кількість:</td>-->
+<!--                    <td th:text="${editVacansion.getCount()}"></td>-->
+<!--                    <td><input path="count"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Дата змін:</td>-->
+<!--                    <td th:text="${editVacansion.getCreated_on().toLocalDate()}"></td>-->
+<!--                    <td><input path="created_on"-->
+<!--                               th:value="${#dates.format(#dates.createNow(),'dd-MM-yyyy HH:mm:ss')}"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Статус:</td>-->
+<!--                    <td th:text="${editVacansion.status}"></td>-->
+<!--                    <td><input hidden path="status" th:value="${true}"/></td>-->
+<!--                </tr>-->
 
-                <tr>
-                    <td colspan="3" align="center">
-                        <input align="center" type="submit" value="Зберегти" class="btn btn-success"></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td colspan="3" align="center">-->
+<!--                        <input align="center" type="submit" value="Зберегти" class="btn btn-success"></td>-->
+<!--                </tr>-->
 
-            </table>
+<!--            </table>-->
+            <input type="text" name="dyrekcija" th:value="${editVacansion.getDyrekcija()}" placeholder="Дирекція" class="form-control mb-4 col-4">
+            <input type="text" name="department" placeholder="Департамент" class="form-control mb-4 col-4">
+            <input type="text" name="viddil" placeholder="Відділ" class="form-control mb-4 col-4">
+            <input type="text" name="posada" placeholder="Посада" class="form-control mb-4 col-4">
+            <input type="text" name="quantity" placeholder="Чисельність" class="form-control mb-4 col-4">
+            <input hidden type="text" name="created_on" placeholder="Дата створення"
+                   th:value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm:ss')}" class="form-control mb-4 col-4">
+            <input hidden type="text" name="status" placeholder="Статус" th:value="${true}" class="form-control mb-4 col-4">
+
+            <button type="submit" class="btn btn-info col-2"> Зберегти вакансию</button>
         </form>
     </div>
 </main>
