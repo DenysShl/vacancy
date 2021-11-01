@@ -76,6 +76,7 @@ public class VacansionController {
 
     @PostMapping("/new")
     public String createVacansion(@ModelAttribute("vacancy") Vacansion vacansion) {
+        System.out.println("New vacansion");
         service.createNewVacansion(vacansion);
         return "redirect:/vacan";
     }

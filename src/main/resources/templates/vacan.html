@@ -20,7 +20,7 @@
         </form>
         <hr>
         <h4> Створити нову вакансію</h4>
-        <a th:href="@{/create}"> Створити</a>
+        <a th:href="@{/create}" class="btn btn-info col-2"> Створити</a>
         <hr>
         <form>
             <table>
@@ -45,7 +45,9 @@
                     <td th:text="${vacansion.viddil}">Відділ</td>
                     <td th:text="${vacansion.posada}">Вакантна посада</td>
                     <td th:text="${vacansion.getCount()}">Чисельність</td>
-                    <td th:text="${vacansion.getCreated_on()}">Дата створенння</td>
+<!--                    .format(vacansion.getCreated_on(),'dd-MM-yyyy HH:mm:ss')-->
+                    <td th:text="${vacansion.getCreated_on().toLocalDate()}
+                    + ${vacansion.getCreated_on().toLocalTime()}">Дата створенння</td>
                     <td th:text="${vacansion.status}">Статус</td>
                     <td>
                         <a th:href="@{/edit/{id}(id=${vacansion.getId()})}" class="btn btn-primary">Update</a>

@@ -13,6 +13,7 @@
 <main>
     <div align="center">
         <h3> Редагування вакансії</h3>
+        <hr>
         <form action="#" th:action="@{/new}" method="POST" th:object="${vacansion}">
 <!--        <form action="#" th:action="@{/new}" method="POST">-->
             <table border="1" cellpadding="5" th:data="${editVacansion}">
@@ -47,18 +48,19 @@
                 </tr>
                 <tr>
                     <td>Дата змін:</td>
-                    <td th:text="${editVacansion.getCreated_on()}"></td>
-                    <td><input path="created_on" th:value="${#dates.createNow()}"/></td>
+                    <td th:text="${editVacansion.getCreated_on().toLocalDate()}"></td>
+                    <td><input path="created_on"
+                               th:value="${#dates.format(#dates.createNow(),'dd-MM-yyyy HH:mm:ss')}"/></td>
                 </tr>
                 <tr>
                     <td>Статус:</td>
                     <td th:text="${editVacansion.status}"></td>
-                    <td><input path="status" th:value="${true}"/></td>
+                    <td><input hidden path="status" th:value="${true}"/></td>
                 </tr>
 
                 <tr>
                     <td colspan="3" align="center">
-                        <input align="center" type="submit" value="Зберегти"></td>
+                        <input align="center" type="submit" value="Зберегти" class="btn btn-success"></td>
                 </tr>
 
             </table>
