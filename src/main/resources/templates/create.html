@@ -3,15 +3,15 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
+    <title>Vacansions</title>
     <meta charset="UTF-8">
-    <title>Vacansion Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-<!--    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -19,28 +19,21 @@
     <hr>
     <h2>Зберегти вакансію</h2>
     <hr>
-<!--        <form action="/new" th:action="@{/new}" th:object="${vacancy}" method="POST">-->
-        <form action="#" th:action="@{/new}" th:object="${vacancy}" method="POST">
-            <input type="text" name="department" placeholder="Департамент" class="form-control mb-4 col-4">
-            <input type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4 col-4">
-            <input type="text" name="viddil" placeholder="Відділ" class="form-control mb-4 col-4">
-            <input type="text" name="posada" placeholder="Посада" class="form-control mb-4 col-4">
-            <input type="text" name="quantity" placeholder="Чисельність" class="form-control mb-4 col-4">
-            <input type="text" name="created_on" placeholder="Дата створення"
-                   th:value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm:ss')}" class="form-control mb-4 col-4">
-            <input type="text" name="status" placeholder="Статус" th:value="${true}" class="form-control mb-4 col-4">
-            <!--        <input type="text" th:field="*{department}" placeholder="Департамент" class="form-control mb-4 col-4">-->
-    <!--        <input type="text" th:field="*{dyrekcija}" placeholder="Дирекція" class="form-control mb-4 col-4">-->
-    <!--        <input type="text" th:field="*{vivvil}" placeholder="Відділ" class="form-control mb-4 col-4">-->
-    <!--        <input type="text" th:field="*{posada}" placeholder="Посада" class="form-control mb-4 col-4">-->
-    <!--        <input type="text" th:field="*{quantity}" placeholder="Чисельність" class="form-control mb-4 col-4">-->
-    <!--        <input type="text" th:field="*{created_on}" placeholder="Дата створення" class="form-control mb-4 col-4">-->
+    <!--        <form action="/new" th:action="@{/new}" th:object="${vacancy}" method="POST">-->
+    <form action="#" th:action="@{new}" th:object="${vacancy}" method="POST">
+        <input type="text" name="department" placeholder="Департамент" class="form-control mb-4 col-4">
+        <input type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4 col-4">
+        <input type="text" name="viddil" placeholder="Відділ" class="form-control mb-4 col-4">
+        <input type="text" name="posada" placeholder="Посада" class="form-control mb-4 col-4">
+        <input type="text" name="quantity" placeholder="Чисельність" class="form-control mb-4 col-4">
+        <input hidden type="text" name="created_on" placeholder="Дата створення"
+               th:value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm:ss')}" class="form-control mb-4 col-4">
+        <input hidden type="text" name="status" placeholder="Статус" th:value="${true}" class="form-control mb-4 col-4">
 
-            <button type="submit" class="btn btn-info col-2"> Зберегти вакансию</button>
-        </form>
+        <button type="submit" class="btn btn-info col-2"> Зберегти вакансию</button>
+    </form>
 
     <hr>
-
     <a th:href="@{/}"> Повернутися до списку вакансій</a>
 </div>
 <div th:replace="fragments/footer :: footer">Footer</div>

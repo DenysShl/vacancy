@@ -6,58 +6,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-<!--    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 
 </head>
 <body>
-<section>
-    <div th:replace="fragments/header :: header">Header</div>
-</section>
-<section>
-    <div align="center">
-        <h2>Список вакансій</h2>
-        <hr>
-        <h4>Пошук</h4>
-        <form method="get" action="search">
-            <input type="text" name="keyword"/>
-            <input type="submit" value="Пошук департаменту" class="btn btn-info"/>
-        </form>
-        <hr>
+<div th:replace="fragments/header :: header">Header</div>
+<div align="center">
+    <h2>Список вакансій</h2>
+    <hr>
+    <h4>Пошук</h4>
+    <form method="get" action="search">
+        <input type="text" name="keyword" placeholder="Посада" class="form-control mb-2 col-1"/>
+        <input type="submit" value="Знайти" class="btn btn-success col-1"/>
+    </form>
+    <hr>
 
-        <form>
-            <table class="table table-striped table-bordered table-sm table-light border-info">
-                <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Дирекція</th>
-                    <th>Департамент</th>
-                    <th>Відділ</th>
-                    <th>Вакантна посада</th>
-                    <th>Чисельність</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="vacansion : ${vacansionList}">
-                    <td th:text="${vacansion.getId()}">id</td>
-                    <td th:text="${vacansion.getDyrekcija()}">Дирекція</td>
-                    <td th:text="${vacansion.getDepartment()}">Департамент</td>
-                    <td th:text="${vacansion.viddil}">Відділ</td>
-                    <td th:text="${vacansion.posada}">Вакантна посада</td>
-                    <td th:text="${vacansion.getCount()}">Чисельність</td>
-                </tr>
-                </tbody>
-            </table>
-        </form>
-    </div>
+    <form>
+        <table class="table table-striped table-bordered table-sm table-light border-info">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Дирекція</th>
+                <th>Департамент</th>
+                <th>Відділ</th>
+                <th>Вакантна посада</th>
+                <th>Чисельність</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vacansion : ${vacansionList}">
+                <td th:text="${vacansion.getId()}">id</td>
+                <td th:text="${vacansion.getDyrekcija()}">Дирекція</td>
+                <td th:text="${vacansion.getDepartment()}">Департамент</td>
+                <td th:text="${vacansion.viddil}">Відділ</td>
+                <td th:text="${vacansion.posada}">Вакантна посада</td>
+                <td th:text="${vacansion.getCount()}">Чисельність</td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
 
-</section>
-<section>
-    <div th:replace="fragments/footer :: footer">Footer</div>
-</section>
+<div th:replace="fragments/footer :: footer">Footer</div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.js"></script>

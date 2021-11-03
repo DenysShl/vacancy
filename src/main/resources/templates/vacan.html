@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-<!--    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </head>
 <body>
 <main>
@@ -18,8 +18,8 @@
         <h3>Список вакансій для редагування!</h3>
         <h5>Пошук</h5>
         <form method="get" action="/searchVacancy">
-            <input type="text" name="keyword"/>
-            <input type="submit" value="Знайти"/>
+            <input type="text" name="keyword" placeholder="Посада" class="form-control mb-2 col-1"/>
+            <input type="submit" value="Знайти" class="btn btn-success col-1"/>
         </form>
         <hr>
         <h4> Створити нову вакансію</h4>
@@ -48,13 +48,14 @@
                     <td th:text="${vacansion.viddil}">Відділ</td>
                     <td th:text="${vacansion.posada}">Вакантна посада</td>
                     <td th:text="${vacansion.getCount()}">Чисельність</td>
-<!--                    .format(vacansion.getCreated_on(),'dd-MM-yyyy HH:mm:ss')-->
+                    <!--                    .format(vacansion.getCreated_on(),'dd-MM-yyyy HH:mm:ss')-->
                     <td th:text="${vacansion.getCreated_on().toLocalDate()} + '  '
-                    + ${vacansion.getCreated_on().toLocalTime()}">Дата створенння</td>
+                    + ${vacansion.getCreated_on().toLocalTime()}">Дата створенння
+                    </td>
                     <td th:text="${vacansion.status}">Статус</td>
                     <td>
                         <a th:href="@{/edit/{id}(id=${vacansion.getId()})}" class="btn btn-primary">Edit</a>
-                        <a th:href="@{/update/{id}(id=${vacansion.getId()})}" class="btn btn-info">Update</a>
+                        <a th:href="@{/update/{id}(id=${vacansion.getId()})}" class="btn btn-success">Update</a>
                         <a th:href="@{/delete/{id}(id=${vacansion.getId()})}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

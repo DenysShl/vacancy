@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.service.VacansionService;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
 public class VacansionController {
 
     private VacansionService service;
@@ -28,6 +28,7 @@ public class VacansionController {
     @GetMapping("/index")
     public String showIndex(Model model) {
         List<Vacansion> vacansionList = service.findAllVacansion();
+        vacansionList.sort(Comparator.comparing(Vacansion::getPosada));
         model.addAttribute("vacansionList", vacansionList);
         return "index";
     }
@@ -49,7 +50,7 @@ public class VacansionController {
     @GetMapping("/searchVacancy")
     public String searchByKeywordVacan(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
         List<Vacansion> vacansions = service.findByKeyword(keyword);
-        model.addAttribute("vacansions", vacansions);
+        model.addAttribute("result", vacansions);
         return "vacan";
     }
 
@@ -74,7 +75,9 @@ public class VacansionController {
         return "create";
     }
 
-    @PostMapping("/new")
+
+
+    @PostMapping("new")
     public String createVacansion(@ModelAttribute("vacancy") Vacansion vacansion) {
         System.out.println("New vacansion");
         service.createNewVacansion(vacansion);

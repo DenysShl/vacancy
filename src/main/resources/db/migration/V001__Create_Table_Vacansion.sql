@@ -1,12 +1,12 @@
 create table vacansions
 (
     id         SERIAL PRIMARY KEY NOT NULL,
-    department VARCHAR(50)        NOT NULL,
-    dyrekcija  VARCHAR(50)        NOT NULL,
-    viddil     VARCHAR(50),
-    posada     VARCHAR(100),
-    quantity   INTEGER,
-    created_on TIMESTAMP          NOT NULL,
+    department VARCHAR(120)       NOT NULL,
+    dyrekcija  VARCHAR(120)       NOT NULL,
+    viddil     VARCHAR(120)       NOT NULL,
+    posada     VARCHAR(120)       NOT NULL,
+    quantity   int4               NOT NULL,
+    created_on TIMESTAMP,
     status     BOOLEAN            NOT NULL
 );
 
