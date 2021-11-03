@@ -62,11 +62,11 @@ public class VacansionController {
         return "edit";
     }
 
-    @PutMapping("/update/{id}")
+    @GetMapping("/update/{id}")
     public String updateVacansion(@ModelAttribute("vacansion") Long id) {
         Vacansion vacansion = service.findById(id);
         service.updateVacansion(id, vacansion);
-        return "redirect:/search" + vacansion.getId();
+        return "vacan" + vacansion.getId();
     }
 
     @GetMapping("/create")
