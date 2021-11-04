@@ -68,8 +68,12 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 400px;
 }
+
+.search-container {
+    text-align: center;
+}
+
 .footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
