@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="table_vacansion">
+    <form>
+        <table class="table table-striped table-hover table-bordered table-light">
+            <thead>
+            <tr class="text-center">
+                <th>№</th>
+                <th>Дирекція</th>
+                <th>Департамент</th>
+                <th>Відділ</th>
+                <th>Вакантна посада</th>
+                <th>Чисельність</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vacansion : ${vacansionList}">
+                <td class="text-center" th:text="${vacansion.id}">id</td>
+                <td th:text="${vacansion.getDyrekcija()}">Дирекція</td>
+                <td th:text="${vacansion.getDepartment()}">Департамент</td>
+                <td th:text="${vacansion.viddil}">Відділ</td>
+                <td th:text="${vacansion.posada}">Вакантна посада</td>
+                <td class="text-center" th:text="${vacansion.getCount()}">Чисельність</td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>

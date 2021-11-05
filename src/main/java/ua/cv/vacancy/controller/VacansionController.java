@@ -43,7 +43,7 @@ public class VacansionController {
     @GetMapping("/search")
     public String searchByKeyword(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
         List<Vacansion> vacansions = service.findByKeyword(keyword);
-        model.addAttribute("vacansions", vacansions);
+        model.addAttribute("vacansionList", vacansions);
         return "search";
     }
 
