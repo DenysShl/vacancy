@@ -37,8 +37,8 @@ public class VacansionService {
         repository.save(vacansion);
     }
 
-    public void updateVacansion(Long id, Vacansion vacansion){
-        if (repository.getById(id) != null) {
+    public void updateVacansion(Vacansion vacansion){
+        if (repository.getById(vacansion.getId()) != null) {
             repository.save(vacansion);
         }
     }

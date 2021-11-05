@@ -64,9 +64,9 @@ public class VacansionController {
     }
 
     @GetMapping("/update/{id}")
-    public String updateVacansion(@ModelAttribute("vacansion") Long id) {
-        Vacansion vacansion = service.findById(id);
-        service.updateVacansion(id, vacansion);
+    public String updateVacansion(@ModelAttribute("vacansion") Vacansion vacansion,Long id) {
+        Vacansion vacansionForId = service.findById(vacansion.getId());
+        service.updateVacansion(vacansionForId);
         return "vacan" + vacansion.getId();
     }
 
@@ -74,8 +74,6 @@ public class VacansionController {
     public String addVacansion(){
         return "create";
     }
-
-
 
     @PostMapping("new")
     public String createVacansion(@ModelAttribute("vacancy") Vacansion vacansion) {
@@ -89,5 +87,4 @@ public class VacansionController {
         service.deleteById(id);
         return "redirect:/vacan";
     }
-
 }
