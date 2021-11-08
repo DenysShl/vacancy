@@ -72,7 +72,7 @@ public class VacansionController {
     }
 
     @GetMapping("/create")
-    public String addVacansion(){
+    public String addVacansion() {
         return "create";
     }
 
