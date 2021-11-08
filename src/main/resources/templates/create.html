@@ -24,11 +24,7 @@
         <input type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4 col-4">
         <input type="text" name="viddil" placeholder="Відділ" class="form-control mb-4 col-4">
         <input type="text" name="posada" placeholder="Посада" class="form-control mb-4 col-4">
-        <input type="text" name="quantity" placeholder="Чисельність" class="form-control mb-4 col-4">
-        <input hidden type="text" name="created_on" placeholder="Дата створення" class="form-control mb-4 col-4">
-<!--               th:value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm:ss')}">-->
-        <input hidden type="text" name="status" placeholder="Статус" th:value="${true}" class="form-control mb-4 col-4">
-
+        <input th:type="numbers" name="quantity" placeholder="Чисельність" class="form-control mb-4 col-4">
         <button type="submit" class="btn btn-info col-2"> Зберегти вакансию</button>
     </form>
 

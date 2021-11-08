@@ -5,7 +5,7 @@ create table vacansions
     dyrekcija  VARCHAR(120)       NOT NULL,
     viddil     VARCHAR(120)       NOT NULL,
     posada     VARCHAR(120)       NOT NULL,
-    quantity   int4               NOT NULL,
+    quantity   int,
     created_on TIMESTAMP,
     status     BOOLEAN            NOT NULL
 );

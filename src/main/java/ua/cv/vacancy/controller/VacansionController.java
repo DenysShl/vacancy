@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.service.VacansionService;
 
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
@@ -64,7 +65,7 @@ public class VacansionController {
     }
 
     @GetMapping("/update/{id}")
-    public String updateVacansion(@ModelAttribute("vacansion") Vacansion vacansion,Long id) {
+    public String updateVacansion(@ModelAttribute("vacansion") Vacansion vacansion) {
         Vacansion vacansionForId = service.findById(vacansion.getId());
         service.updateVacansion(vacansionForId);
         return "vacan" + vacansion.getId();
@@ -77,7 +78,9 @@ public class VacansionController {
 
     @PostMapping("new")
     public String createVacansion(@ModelAttribute("vacancy") Vacansion vacansion) {
-        System.out.println("New vacansion");
+        System.out.println("Created new vacansion: " + LocalDateTime.now());
+        vacansion.setCreated_on(LocalDateTime.now());
+        vacansion.setStatus(true);
         service.createNewVacansion(vacansion);
         return "redirect:/vacan";
     }
