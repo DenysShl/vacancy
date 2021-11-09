@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class VacansionService {
 
-    private VacansionRepository repository;
+    private final VacansionRepository repository;
 
     @Autowired
     public VacansionService(VacansionRepository repository) {
@@ -38,8 +38,6 @@ public class VacansionService {
     }
 
     public void updateVacansion(Vacansion vacansion){
-        if (repository.getById(vacansion.getId()) != null) {
-            repository.save(vacansion);
-        }
+        repository.save(vacansion);
     }
 }

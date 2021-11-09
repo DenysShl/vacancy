@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 public class VacansionController {
 
-    private VacansionService service;
+    private final VacansionService service;
 
     @Autowired
     public VacansionController(VacansionService service) {
@@ -55,20 +55,19 @@ public class VacansionController {
         return "vacan";
     }
 
-    @GetMapping("/edit/{id}")
-    public String editVacansion(@PathVariable(value = "id", required = false) Long id, Model model) {
-        Vacansion vacansion = service.findById(id);
-        if (vacansion != null) {
-            model.addAttribute("editVacansion", vacansion);
-        }
-        return "edit";
+    @GetMapping("/update/{id}")
+    public String updateVacansionForm(@PathVariable(value = "id", required = false) Long id, Model model) {
+        Vacansion editVacansion = service.findById(id);
+        model.addAttribute("editVacansion", editVacansion);
+        return "update";
     }
 
-    @GetMapping("/update/{id}")
-    public String updateVacansion(@ModelAttribute("vacansion") Vacansion vacansion) {
-        Vacansion vacansionForId = service.findById(vacansion.getId());
-        service.updateVacansion(vacansionForId);
-        return "vacan" + vacansion.getId();
+    @PostMapping("update")
+    public String updateVacancy(@ModelAttribute("vacansionForId") Vacansion vacansion) {
+        vacansion.setCreated_on(LocalDateTime.now());
+        vacansion.setStatus(true);
+        service.updateVacansion(vacansion);
+        return "redirect:/vacan";
     }
 
     @GetMapping("/create")

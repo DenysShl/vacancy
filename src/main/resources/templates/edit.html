@@ -13,25 +13,32 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header">Header</div>
-<div align="center">
-    <h3> Редагування вакансії</h3>
-    <hr>
-    <form action="#" th:action="@{/update/{id}}" th:object="${vacansion}" method="POST">
-        <input type="text" name="vacansion.dyrekcija" th:value="${editVacansion.getDyrekcija()}" placeholder="Дирекція"
-               class="form-control mb-4 col-4">
-        <input type="text" name="department" placeholder="Департамент" class="form-control mb-4 col-4">
-        <input type="text" name="viddil" placeholder="Відділ" class="form-control mb-4 col-4">
-        <input type="text" name="posada" placeholder="Посада" class="form-control mb-4 col-4">
-        <input type="text" name="quantity" placeholder="Чисельність" class="form-control mb-4 col-4">
-        <input hidden type="text" name="created_on" placeholder="Дата створення"
-               th:value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm:ss')}">
-        <input hidden type="text" name="status" placeholder="Статус" th:value="${true}" class="form-control mb-4 col-4">
+<section class="container mt-3">
+    <div class="d-flex justify-content-center">
+        <br>
+        <h3> Редагування вакансії</h3>
+        <hr>
+        <form action="#" th:action="@{/new}" th:object="${vacancy}" method="POST">
+            <input readonly type="number" th:value="${editVacansion.id}" id="id" placeholder="ID"
+                   class="form-control mb-4 col-4">
+            <input type="text" name="dyrekcija" th:value="${editVacansion.getDyrekcija()}" placeholder="Дирекція"
+                   class="form-control mb-4 col-4">
+            <input type="text" name="department" th:value="${editVacansion.getDepartment()}" placeholder="Департамент"
+                   class="form-control mb-4 col-4">
+            <input type="text" name="viddil" th:value="${editVacansion.getViddil()}" placeholder="Відділ"
+                   class="form-control mb-4 col-4">
+            <input type="text" name="posada" th:value="${editVacansion.getPosada()}" placeholder="Посада"
+                   class="form-control mb-4 col-4">
+            <input type="number" name="count" th:value="${editVacansion.getCount()}" placeholder="Чисельність"
+                   class="form-control mb-4 col-4">
+            <input hidden type="text" name="created_on" placeholder="Дата створення"
+                   th:value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm:ss')}">
+            <!--        <input hidden type="text" name="status" placeholder="Статус" th:value="${true}" class="form-control mb-4 col-4">-->
 
-        <button type="submit" class="btn btn-info col-2"> Зберегти вакансию</button>
-    </form>
-</div>
-
-<div th:replace="fragments/footer :: footer">Footer</div>
+            <button type="submit" class="btn btn-info col-4"> Зберегти вакансию</button>
+        </form>
+    </div>
+</section>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

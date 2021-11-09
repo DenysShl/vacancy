@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-
 <head>
     <title>Vacansions</title>
     <meta charset="UTF-8">
@@ -12,27 +11,30 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-
 <body>
-<div th:replace="fragments/navigation :: navigation">Navigation</div>
+<div th:replace="fragments/header :: header">Header</div>
 <section class="container mt-3">
     <div class="d-flex justify-content-center">
         <div class="row">
-            <h3>Створити нову вакансію</h3>
-            <form action="#" th:action="@{new}" th:object="${vacancy}" method="POST" class="mt-4 mb-4">
-                <div class="col">
-                    <input type="text" name="department" placeholder="Департамент" class="form-control mb-4">
-                    <input type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4">
-                    <input type="text" name="viddil" placeholder="Відділ" class="form-control mb-4">
-                    <input type="text" name="posada" placeholder="Посада" class="form-control mb-4">
-                    <input type="number" min="1" name="count" placeholder="Чисельність"
-                           class="form-control mb-4">
-                    <button type="submit" class="btn btn-info col-3" > Зберегти вакансию</button>
-                </div>
+            <h3> Редагування вакансії</h3>
+            <hr>
+            <form action="#" th:action="@{/update}" th:object="${vacansionForId}" method="POST">
+                <input readonly type="number" th:value="${editVacansion.id}" id="id" placeholder="ID"
+                       class="form-control mb-4 col-4">
+                <input type="text" name="dyrekcija" th:value="${editVacansion.getDyrekcija()}" placeholder="Дирекція"
+                       class="form-control mb-4 col-4">
+                <input type="text" name="department" th:value="${editVacansion.getDepartment()}"
+                       placeholder="Департамент"
+                       class="form-control mb-4 col-4">
+                <input type="text" name="viddil" th:value="${editVacansion.getViddil()}" placeholder="Відділ"
+                       class="form-control mb-4 col-4">
+                <input type="text" name="posada" th:value="${editVacansion.getPosada()}" placeholder="Посада"
+                       class="form-control mb-4 col-4">
+                <input type="number" name="count" th:value="${editVacansion.getCount()}" placeholder="Чисельність"
+                       class="form-control mb-4 col-4">
+
+                <button type="submit" class="btn btn-info col-5"> Зберегти вакансию</button>
             </form>
-            <hr>
-            <a class="text-center" th:href="@{/}"> Повернутися до списку вакансій</a>
-            <hr>
         </div>
     </div>
 </section>
