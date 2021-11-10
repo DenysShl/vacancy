@@ -6,6 +6,7 @@ import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.repository.VacansionRepository;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -19,7 +20,9 @@ public class VacansionService {
     }
 
     public List<Vacansion> findAllVacansion(){
-        return repository.findAll();
+        List<Vacansion> vacansionList = repository.findAll();
+        vacansionList.sort(Comparator.comparing(Vacansion::getPosada));
+        return vacansionList;
     }
 
     public List<Vacansion> findByKeyword(String keyword){
@@ -35,18 +38,20 @@ public class VacansionService {
     }
 
     public void createNewVacansion(Vacansion vacansion){
+        vacansion.setCreated_on(LocalDateTime.now());
+        vacansion.setStatus(true);
         repository.save(vacansion);
     }
 
-
     public void updateVacansion(Vacansion vacansion){
-//        Vacansion vac = repository.getById(vacansion.getId());
-//        vac.setCreated_on(LocalDateTime.now());
-//        vac.setDepartment(vacansion.getDepartment());
-//        vac.setDyrekcija(vacansion.getDyrekcija());
-//        vac.setCount(vacansion.getCount());
-//        vac.setPosada(vacansion.getPosada());
-//        vac.setViddil(vacansion.getViddil());
-        repository.save(vacansion);
+        Vacansion vac = repository.getById(vacansion.getId());
+        vac.setCreated_on(LocalDateTime.now());
+        vac.setStatus(true);
+        vac.setDepartment(vacansion.getDepartment());
+        vac.setDyrekcija(vacansion.getDyrekcija());
+        vac.setCount(vacansion.getCount());
+        vac.setPosada(vacansion.getPosada());
+        vac.setViddil(vacansion.getViddil());
+        repository.save(vac);
     }
 }

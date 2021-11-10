@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.service.VacansionService;
 
-import java.time.LocalDateTime;
-import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -29,7 +27,6 @@ public class VacansionController {
     @GetMapping("/index")
     public String showIndex(Model model) {
         List<Vacansion> vacansionList = service.findAllVacansion();
-        vacansionList.sort(Comparator.comparing(Vacansion::getPosada));
         model.addAttribute("vacansionList", vacansionList);
         return "index";
     }
@@ -64,8 +61,6 @@ public class VacansionController {
 
     @PostMapping("/update")
     public String updateVacancy(@ModelAttribute("vacansionForId") Vacansion vacansion) {
-        vacansion.setCreated_on(LocalDateTime.now());
-        vacansion.setStatus(true);
         service.updateVacansion(vacansion);
         return "redirect:/vacan";
     }
@@ -77,9 +72,6 @@ public class VacansionController {
 
     @PostMapping("new")
     public String createVacansion(@ModelAttribute("vacancy") Vacansion vacansion) {
-        System.out.println("Created new vacansion: " + LocalDateTime.now());
-        vacansion.setCreated_on(LocalDateTime.now());
-        vacansion.setStatus(true);
         service.createNewVacansion(vacansion);
         return "redirect:/vacan";
     }
