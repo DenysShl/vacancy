@@ -62,7 +62,7 @@ public class VacansionController {
         return "update";
     }
 
-    @PostMapping("update")
+    @PostMapping("/update")
     public String updateVacancy(@ModelAttribute("vacansionForId") Vacansion vacansion) {
         vacansion.setCreated_on(LocalDateTime.now());
         vacansion.setStatus(true);

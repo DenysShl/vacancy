@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.repository.VacansionRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -37,7 +38,15 @@ public class VacansionService {
         repository.save(vacansion);
     }
 
+
     public void updateVacansion(Vacansion vacansion){
+//        Vacansion vac = repository.getById(vacansion.getId());
+//        vac.setCreated_on(LocalDateTime.now());
+//        vac.setDepartment(vacansion.getDepartment());
+//        vac.setDyrekcija(vacansion.getDyrekcija());
+//        vac.setCount(vacansion.getCount());
+//        vac.setPosada(vacansion.getPosada());
+//        vac.setViddil(vacansion.getViddil());
         repository.save(vacansion);
     }
 }
