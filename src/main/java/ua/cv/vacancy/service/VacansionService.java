@@ -45,13 +45,13 @@ public class VacansionService {
 
     public void updateVacansion(Vacansion vacansion){
         Vacansion vac = repository.getById(vacansion.getId());
-        vac.setCreated_on(LocalDateTime.now());
-        vac.setStatus(true);
         vac.setDepartment(vacansion.getDepartment());
         vac.setDyrekcija(vacansion.getDyrekcija());
-        vac.setCount(vacansion.getCount());
-        vac.setPosada(vacansion.getPosada());
         vac.setViddil(vacansion.getViddil());
+        vac.setPosada(vacansion.getPosada());
+        vac.setCount(vacansion.getCount());
+        vac.setCreated_on(LocalDateTime.now());
+        vac.setStatus(true);
         repository.save(vac);
     }
 }

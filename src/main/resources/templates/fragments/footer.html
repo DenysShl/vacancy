@@ -33,15 +33,9 @@
                 </div>
                 <div class="col-md-5">
 
-<!--                    <form action="#" th:action="@{/send}" th:object="${message}" method="POST" class="mt-4 mb-4">-->
-<!--                        <div class="col">-->
-<!--                            <input type="text" name="department" placeholder="Департамент" class="form-control mb-4">-->
-<!--                    <form action="#" th:action="send" th:object="message" method="post">-->
-
-                    <form action="#" th:action="@{/send}" th:object="${message}" method="POST">
+                    <form action="#" th:action="@{/send}" th:object="${messageSend}" method="POST">
                         <div class="col-auto">
                         <fieldset class="form-group">
-                            <input hidden type="number" name="id" class="form-control ma" id="id">
                             <input type="email" name="email" class="form-control ma" id="exampleInputEmail1"
                                    placeholder="Enter email">
                         </fieldset>
@@ -52,7 +46,9 @@
                         </fieldset>
                         <fieldset class="form-group text-xs-right">
                             <button type="submit" class="btn btn-primary col-2 "> Send</button>
+                            <a th:href="@{/messageForm}" class="btn btn-primary col-2"> Написати нам</a>
                         </fieldset>
+<!--                            -->
                         </div>
                     </form>
                 </div>
