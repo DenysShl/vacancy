@@ -2,6 +2,7 @@ package ua.cv.vacancy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.StringUtils;
 import ua.cv.vacancy.model.Message;
 import ua.cv.vacancy.repository.MesageRepository;
 
@@ -12,10 +13,12 @@ import java.util.List;
 public class MessageService {
 
     private final MesageRepository repository;
+    private final MailService mailSender;
 
     @Autowired
-    public MessageService(MesageRepository repository) {
+    public MessageService(MesageRepository repository, MailService sender) {
         this.repository = repository;
+        this.mailSender = sender;
     }
 
     public List<Message> findAllMessage() {
@@ -27,8 +30,13 @@ public class MessageService {
     }
 
     public void saveMessege(Message message) {
-        message.setCreated_on(LocalDateTime.now());
-        repository.save(message);
+        if (!StringUtils.isEmpty(message.getEmail()) && !StringUtils.isEmpty(message.getMessage())) {
+            message.setCreated_on(LocalDateTime.now());
+            repository.save(message);
+            System.out.println("Save messageService: " + message.getEmail() + ", \n" +
+                    message.getMessage() + ", success !!! ");
+            mailSender.sendingEmail(message);
+        }
     }
 
     public void deleteMessageById(Long id) {

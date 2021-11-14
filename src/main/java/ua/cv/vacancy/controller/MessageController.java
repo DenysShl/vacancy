@@ -35,7 +35,6 @@ public class MessageController {
 
     @PostMapping("/send")
     public String saveMessage(@ModelAttribute("messageSend") Message message) {
-        System.out.println("Message: " + message.getEmail() + message.getMessage());
         service.saveMessege(message);
         return "redirect:/index";
     }
