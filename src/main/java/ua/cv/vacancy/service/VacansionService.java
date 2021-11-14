@@ -1,6 +1,10 @@
 package ua.cv.vacancy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.repository.VacansionRepository;
@@ -8,6 +12,7 @@ import ua.cv.vacancy.repository.VacansionRepository;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VacansionService {
@@ -30,7 +35,14 @@ public class VacansionService {
     }
 
     public Vacansion findById(Long id){
-        return repository.getById(id);
+        Optional<Vacansion> optional = repository.findById(id);
+        Vacansion vacansion = null;
+        if (optional.isPresent()) {
+            vacansion = optional.get();
+        } else {
+            throw new RuntimeException(" Vacansion not found for id :: " + id);
+        }
+        return vacansion;
     }
 
     public void deleteById(Long id){
@@ -50,8 +62,16 @@ public class VacansionService {
         vac.setViddil(vacansion.getViddil());
         vac.setPosada(vacansion.getPosada());
         vac.setCount(vacansion.getCount());
+        vac.setStatus(vacansion.isStatus());
         vac.setCreated_on(LocalDateTime.now());
-        vac.setStatus(true);
         repository.save(vac);
+    }
+
+    public Page<Vacansion> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
+                Sort.by(sortField).descending();
+
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+        return this.repository.findAll(pageable);
     }
 }

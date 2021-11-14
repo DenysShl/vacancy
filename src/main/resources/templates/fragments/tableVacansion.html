@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>vacansion</title>
 </head>
 <body>
 <div th:fragment="table_vacansion">
@@ -11,11 +11,16 @@
             <thead>
             <tr class="text-center">
                 <th>№</th>
-                <th>Дирекція</th>
-                <th>Департамент</th>
-                <th>Відділ</th>
-                <th>Вакантна посада</th>
-                <th>Чисельність</th>
+                <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=dyrekcija&sortDir=' + ${reverseSortDir}}">
+                    Дирекція</a></th>
+                <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=department&sortDir=' + ${reverseSortDir}}">
+                    Департамент</a></th>
+                <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=viddil&sortDir=' + ${reverseSortDir}}">
+                    Відділ</a></th>
+                <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=posada&sortDir=' + ${reverseSortDir}}">
+                    Вакантна посада</a></th>
+                <th><a th:href="@{'/page/' + ${currentPage} + '?sortField=count&sortDir=' + ${reverseSortDir}}">
+                    Чисельність</a></th>
             </tr>
             </thead>
             <tbody>

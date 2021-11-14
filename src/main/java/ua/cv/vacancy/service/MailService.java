@@ -2,6 +2,7 @@ package ua.cv.vacancy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,11 @@ public class MailService extends SimpleMailMessage {
         // Установить актуальное сообщение
         msg.setText("Від: " + message.getEmail() + "\n message: " + message.getMessage());
 
-        javaMailSender.send(msg);
+        try {
+            javaMailSender.send(msg);
+            System.out.println("Message sending!");
+        } catch (MailException e) {
+            e.printStackTrace();
+        }
     }
 }

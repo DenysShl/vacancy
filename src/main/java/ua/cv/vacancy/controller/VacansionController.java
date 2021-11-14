@@ -1,6 +1,7 @@
 package ua.cv.vacancy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,17 +20,17 @@ public class VacansionController {
         this.service = service;
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "redirect:/index";
+    @GetMapping(value = {"/", "/index"})
+    public String viewHomePage(Model model) {
+        return findPaginated(1, "posada", "asc", model);
     }
 
-    @GetMapping("/index")
-    public String showIndex(Model model) {
-        List<Vacansion> vacansionList = service.findAllVacansion();
-        model.addAttribute("vacansionList", vacansionList);
-        return "index";
-    }
+//    @GetMapping(value = {"/", "/index"})
+//    public String showIndex(Model model) {
+//        List<Vacansion> vacansionList = service.findAllVacansion();
+//        model.addAttribute("vacansionList", vacansionList);
+//        return "index";
+//    }
 
     @GetMapping("/vacan")
     public String showVacan(Model model) {
@@ -80,5 +81,27 @@ public class VacansionController {
     public String deleteVacansionById(@PathVariable("id") Long id) {
         service.deleteById(id);
         return "redirect:/vacan";
+    }
+
+    @GetMapping("/page/{pageNo}")
+    public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
+                                @RequestParam("sortField") String sortField,
+                                @RequestParam("sortDir") String sortDir,
+                                Model model) {
+        int pageSize = 5;
+
+        Page<Vacansion> page = service.findPaginated(pageNo, pageSize, sortField, sortDir);
+        List<Vacansion> listVacansion = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
+        model.addAttribute("vacansionList", listVacansion);
+        return "index";
     }
 }
