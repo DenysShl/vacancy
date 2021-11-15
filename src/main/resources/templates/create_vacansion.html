@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <div th:replace="fragments/header :: header_css"/>
@@ -14,11 +13,11 @@
             <h3>Створити нову вакансію</h3>
             <form action="#" th:action="@{new}" th:object="${vacancy}" method="POST" class="mt-4 mb-4">
                 <div class="col">
-                    <input type="text" name="department" placeholder="Департамент" class="form-control mb-4">
-                    <input type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4">
-                    <input type="text" name="viddil" placeholder="Відділ" class="form-control mb-4">
-                    <input type="text" name="posada" placeholder="Посада" class="form-control mb-4">
-                    <input type="number" min="1" name="count" placeholder="Чисельність"
+                    <input required type="text" name="department" placeholder="Департамент" class="form-control mb-4">
+                    <input required type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4">
+                    <input required type="text" name="viddil" placeholder="Відділ" class="form-control mb-4">
+                    <input required type="text" name="posada" placeholder="Посада" class="form-control mb-4">
+                    <input required type="number" min="1" name="count" placeholder="Чисельність"
                            class="form-control mb-4">
                     <button type="submit" class="btn btn-info col-3"> Зберегти вакансию</button>
                 </div>

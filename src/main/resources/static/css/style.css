@@ -1,41 +1,15 @@
-/*h1 {*/
-/*    color: #0000ff;*/
-/*}*/
-
-/*h2 {*/
-/*    color: darkred;*/
-/*}*/
-
 body {
     /*color: #cd0e0e;*/
     /*background: #d9d5d5;*/
 }
 
-/*table {*/
-/*    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
-/*    font-size: 14px;*/
-/*    !*border-collapse: collapse;*!*/
-/*    text-align: center;*/
-/*    !*width: 100%;*!*/
-/*    !*margin-bottom: 20px;*!*/
-/*    border: 1px solid #dddddd;*/
-/*}*/
-/*!*th, td:first-child {*!*/
 th {
-    /*background: #1577b3;*/
     color: #091c78;
     font-weight: bold;
     padding: 5px;
-    /*background: #bd1d1d;*/
     border: 1px solid #dddddd;
 }
-/*th, td {*/
-/*    border-style: solid;*/
-/*    border-width: 0 1px 1px 0;*/
-/*    border-color: white;*/
-/*}*/
 th:first-child, td:first-child {
-    /*td:first-child {*/
     text-align: center;
 }
 td {
@@ -56,32 +30,15 @@ html {
     position: relative;
     min-height: 100%;
 }
-/*body {*/
-/*    !* Margin bottom by footer height *!*/
-/*    margin-bottom: 300px;*/
-/*}*/
 
 .search-container {
     text-align: center;
 }
 
 .footer {
-    /*bottom: 0;*/
     width: 100%;
-    /* Set the fixed height of the footer here */
     height: 300px;
 }
-
-/* Taller footer on small screens */
-/*@media (max-width: 567em) {*/
-/*    body {*/
-/*        margin-bottom: 700px;*/
-/*    }*/
-/*    .footer {*/
-/*        height: 300px;*/
-/*    }*/
-/*}*/
-
 /* Sticky footer style and color
 -------------------------------------------------- */
 footer {

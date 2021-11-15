@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ua" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <div th:replace="fragments/header :: header_css"/>
 </head>
 <body>
 <div th:replace="fragments/navigation :: navigation">Navigation</div>
@@ -18,7 +17,6 @@
     <a class="text-center" th:href="@{/}"> Повернутися до списку вакансій</a>
     <hr>
 </section>
-<!--<div th:replace="fragments/footer :: footer_scripts">Scripts</div>-->
 <script th:src="@{https://code.jquery.com/jquery-3.4.1.slim.js}"></script>
 <script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js}"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

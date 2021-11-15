@@ -25,13 +25,6 @@ public class VacansionController {
         return findPaginated(1, "posada", "asc", model);
     }
 
-//    @GetMapping(value = {"/", "/index"})
-//    public String showIndex(Model model) {
-//        List<Vacansion> vacansionList = service.findAllVacansion();
-//        model.addAttribute("vacansionList", vacansionList);
-//        return "index";
-//    }
-
     @GetMapping("/vacan")
     public String showVacan(Model model) {
         List<Vacansion> vacansionList = service.findAllVacansion();
