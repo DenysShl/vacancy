@@ -13,8 +13,9 @@
             <h3>Написати нам</h3>
             <form action="#" th:action="@{/send}" th:object="${messageSend}" method="POST" class="mt-4 mb-4">
                 <div class="col">
-                    <input type="email" name="email" placeholder="Введіть електронну адресу" class="form-control mb-4">
-                    <textarea type="text" name="message" placeholder="Повідомлення"
+                    <input required type="email" name="email" placeholder="Введіть електронну адресу" class="form-control mb-4">
+                    <input required type="tel" name="phoneNumber" pattern="+?[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Введіть телефон" class="form-control mb-4">
+                    <textarea required type="text" name="message" placeholder="Повідомлення"
                               class="form-control mb-4"></textarea>
 
                     <button type="submit" class="text-center btn btn-info col-3"> Відправити</button>

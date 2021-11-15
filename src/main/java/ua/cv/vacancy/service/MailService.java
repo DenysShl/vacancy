@@ -16,6 +16,9 @@ public class MailService extends SimpleMailMessage {
     @Value("${spring.mail.username}")
     private String userFrom;
 
+    @Value("${spring.mail.userTo}")
+    private String userTo;
+
     @Autowired
     public MailService(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
@@ -27,13 +30,14 @@ public class MailService extends SimpleMailMessage {
         msg.setFrom(userFrom);
 
         // Необходимо указать адрес электронной почты получателя
-        msg.setTo(message.getEmail());
+        msg.setTo(userTo);
 
         // Установить тему: поле заголовка
         msg.setSubject("Запит з порталу стосовно вакансії");
 
         // Установить актуальное сообщение
-        msg.setText("Від: " + message.getEmail() + "\n message: " + message.getMessage());
+        msg.setText("Від: " + message.getEmail() + "\n тел: " + message.getPhoneNumber() +
+                "\n message: " + message.getMessage());
 
         try {
             javaMailSender.send(msg);

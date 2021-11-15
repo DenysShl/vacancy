@@ -36,13 +36,19 @@
                     <form action="#" th:action="@{/send}" th:object="${messageSend}" method="POST">
                         <div class="col-auto">
                             <fieldset class="form-group">
-                                <input type="email" name="email" class="form-control col-md-6" id="exampleInputEmail1"
+                                <input required type="email" name="email" class="form-control col-md-6" id="exampleInputEmail1"
                                        placeholder="Enter email">
                             </fieldset>
                         </div>
                         <div class="col-auto">
                             <fieldset class="form-group">
-                                <textarea class="form-control col-md-6" name="message" id="exampleMessage"
+                                <input required type="tel" name="phoneNumber" class="form-control col-md-6" id="exampleInputTel"
+                                       placeholder="Enter phone number">
+                            </fieldset>
+                        </div>
+                        <div class="col-auto">
+                            <fieldset class="form-group">
+                                <textarea required class="form-control col-md-6" name="message" id="exampleMessage"
                                           placeholder="Message"></textarea>
                             </fieldset>
                             <fieldset class="form-group text-xs-right">

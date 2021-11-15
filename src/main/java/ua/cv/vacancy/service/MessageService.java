@@ -33,8 +33,8 @@ public class MessageService {
         if (!StringUtils.isEmpty(message.getEmail()) && !StringUtils.isEmpty(message.getMessage())) {
             message.setCreated_on(LocalDateTime.now());
             repository.save(message);
-            System.out.println("Save messageService: " + message.getEmail() + ", \n" +
-                    message.getMessage() + ", success !!! ");
+            System.out.println("Save_messageService :: " + message.getEmail() + ", " +
+                    "phone: " + message.getPhoneNumber() + ", " + message.getMessage() + ", success !!! ");
             mailSender.sendingEmail(message);
         }
     }

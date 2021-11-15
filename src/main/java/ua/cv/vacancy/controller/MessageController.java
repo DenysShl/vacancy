@@ -36,6 +36,6 @@ public class MessageController {
     @PostMapping("/send")
     public String saveMessage(@ModelAttribute("messageSend") Message message) {
         service.saveMessege(message);
-        return "redirect:/index";
+        return "success_sending";
     }
 }

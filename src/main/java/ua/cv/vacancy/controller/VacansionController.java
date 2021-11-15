@@ -57,7 +57,7 @@ public class VacansionController {
     public String updateVacansionForm(@PathVariable(value = "id", required = false) Long id, Model model) {
         Vacansion editVacansion = service.findById(id);
         model.addAttribute("editVacansion", editVacansion);
-        return "update";
+        return "update_vacansion";
     }
 
     @PostMapping("/update")
@@ -68,7 +68,7 @@ public class VacansionController {
 
     @GetMapping("/create")
     public String addVacansion() {
-        return "create";
+        return "create_vacansion";
     }
 
     @PostMapping("new")

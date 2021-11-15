@@ -20,6 +20,10 @@ public class Message {
     @NonNull
     private String email;
 
+    @Column(name = "tel")
+    @NonNull
+    private String phoneNumber;
+
     @Column(name = "message")
     @NonNull
     private String message;
