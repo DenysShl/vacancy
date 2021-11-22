@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <div th:replace="fragments/header :: header_css"/>
@@ -11,9 +11,10 @@
     <div class="d-flex justify-content-center">
         <div class="row">
             <h3>Створити нову вакансію</h3>
-            <form action="#" th:action="@{new}" th:object="${vacancy}" method="POST" class="mt-4 mb-4">
+            <form method="POST" action="#" th:action="@{new}" th:object="${vacancy}" class="mt-4 mb-4">
                 <div class="col">
                     <input required type="text" name="department" placeholder="Департамент" class="form-control mb-4">
+                    <div style="color: red" th:if="${#fields.hasErrors('department')}" th:erros="*{department}"></div>
                     <input required type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4">
                     <input required type="text" name="viddil" placeholder="Відділ" class="form-control mb-4">
                     <input required type="text" name="posada" placeholder="Посада" class="form-control mb-4">
