@@ -5,18 +5,19 @@
 </head>
 <body>
 <div th:replace="fragments/navigation :: navigation">Navigation</div>
-<section class="container mt-3">
-    <div class="d-flex justify-content-center">
-        <div class="row">
-            <h2> Повідомлення надіслано, оператор зв`яжиться з Вами найближчим часом.</h2>
-            <h2> Дякую за розуміння.</h2>
-        </div>
-    </div>
+<div class="container mt-5">
+    <section>
+        <br>
+        <br>
+        <br>
+        <h5> Повідомлення надіслано, оператор зв`яжиться з Вами найближчим часом.</h5>
+        <h7>Дякую за розуміння.</h7>
 
-    <hr>
-    <a class="text-center" th:href="@{/}"> Повернутися до списку вакансій</a>
-    <hr>
-</section>
+        <hr>
+        <a class="text-center" th:href="@{/}"> Повернутися до списку вакансій</a>
+        <hr>
+    </section>
+</div>
 <script th:src="@{https://code.jquery.com/jquery-3.4.1.slim.js}"></script>
 <script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js}"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

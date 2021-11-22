@@ -6,9 +6,9 @@
 
 </head>
 <body>
-<div th:replace="fragments/navigation :: navigation">Navigation</div>
-<div th:replace="fragments/header :: header">Header</div>
-<div th:replace="fragments/pageContent :: page_content">Page Content</div>
+<div th:insert="fragments/navigation :: navigation">Navigation</div>
+<div th:insert="fragments/header :: header">Header</div>
+<div th:insert="fragments/pageContent :: page_content">Page Content</div>
 
 <section class="container">
     <div class="search-container">

@@ -81,7 +81,7 @@ public class VacansionController {
                                 @RequestParam("sortField") String sortField,
                                 @RequestParam("sortDir") String sortDir,
                                 Model model) {
-        int pageSize = 5;
+        int pageSize = 7;
 
         Page<Vacansion> page = service.findPaginated(pageNo, pageSize, sortField, sortDir);
         List<Vacansion> listVacansion = page.getContent();
@@ -95,6 +95,6 @@ public class VacansionController {
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
         model.addAttribute("vacansionList", listVacansion);
-        return "index";
+        return "/index";
     }
 }

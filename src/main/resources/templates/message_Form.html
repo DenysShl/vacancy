@@ -7,25 +7,33 @@
 
 <body>
 <div th:replace="fragments/navigation :: navigation">Navigation</div>
-<section class="container mt-3">
-    <div class="d-flex justify-content-center">
-        <div class="row">
-            <h3>Написати нам</h3>
-            <form action="#" th:action="@{/send}" th:object="${messageSend}" method="POST" class="mt-4 mb-4">
-                <div class="col">
-                    <input required type="email" name="email" placeholder="Введіть електронну адресу" class="form-control mb-4">
-                    <input required type="tel" name="phoneNumber" pattern="+?[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Введіть телефон" class="form-control mb-4">
-                    <textarea required type="text" name="message" placeholder="Повідомлення"
-                              class="form-control mb-4"></textarea>
+<div class="container mt-5">
+    <h4>Написати нам</h4>
+    <section class="container mt-3">
+        <div class="d-flex justify-content-center">
+            <div class="row">
+                <br>
 
-                    <button type="submit" class="text-center btn btn-info col-3"> Відправити</button>
-                </div>
-            </form>
-            <hr>
-            <a class="text-center" th:href="@{/}"> Повернутися до списку вакансій</a>
+                <form method="POST" action="#" th:action="@{/send}" th:object="${messageSend}" class="mt-4 mb-4">
+                    <div class="col">
+
+                        <input required type="email" name="email" placeholder="Введіть електронну адресу"
+                               class="form-control mb-4">
+<!--                        <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>-->
+                        <input required type="tel" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                               placeholder="Введіть телефон, у вигляді 050-111-1111" class="form-control mb-4">
+                        <textarea type="text" name="message" placeholder="Повідомлення"
+                                  class="form-control mb-4"></textarea>
+
+                        <button type="submit" class="text-center btn btn-info col-3"> Відправити</button>
+                    </div>
+                </form>
+                <hr>
+                <a class="text-center" th:href="@{/}"> Повернутися до списку вакансій</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 <div th:replace="fragments/footer :: footer_scripts">Scripts</div>
 </body>
 </html>
