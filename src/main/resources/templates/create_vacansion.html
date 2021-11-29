@@ -14,7 +14,7 @@
             <form method="POST" action="#" th:action="@{new}" th:object="${vacancy}" class="mt-4 mb-4">
                 <div class="col">
                     <input required type="text" name="department" placeholder="Департамент" class="form-control mb-4">
-                    <div style="color: red" th:if="${#fields.hasErrors('department')}" th:erros="*{department}"></div>
+<!--                    <div style="color: red" th:if="${#fields.hasErrors('department')}" th:erros="*{department}"></div>-->
                     <input required type="text" name="dyrekcija" placeholder="Дирекція" class="form-control mb-4">
                     <input required type="text" name="viddil" placeholder="Відділ" class="form-control mb-4">
                     <input required type="text" name="posada" placeholder="Посада" class="form-control mb-4">
