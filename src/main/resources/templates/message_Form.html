@@ -16,10 +16,12 @@
 
                 <form method="POST" action="#" th:action="@{/send}" th:object="${messageSend}" class="mt-4 mb-4">
                     <div class="col">
-
                         <input required type="email" name="email" placeholder="Введіть електронну адресу"
                                class="form-control mb-4">
 <!--                        <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>-->
+<!--                        <ul>-->
+<!--                            <li th:each="err : ${#fields.errors('email')}" th:text="${err}" class="alert alert-warning" />-->
+<!--                        </ul>-->
                         <input required type="tel" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                placeholder="Введіть телефон, у вигляді 050-111-1111" class="form-control mb-4">
                         <textarea type="text" name="message" placeholder="Повідомлення"

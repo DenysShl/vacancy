@@ -5,11 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.service.VacansionService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -67,13 +67,10 @@ public class VacansionController {
     }
 
     @PostMapping("new")
-    public String createVacansion(@ModelAttribute("vacancy") @Valid Vacansion vacansion,
+    public String createVacansion(@ModelAttribute("vacancy") @Validated Vacansion vacansion,
                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             System.out.println("Errors !! ");
-        }
-        if (bindingResult.hasFieldErrors()){
-            System.out.println("Errors field !!! ");
         }
         service.createNewVacansion(vacansion);
         return "redirect:/vacan";
