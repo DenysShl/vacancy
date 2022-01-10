@@ -47,7 +47,7 @@
                 <td th:text="${vacansion.viddil}">Відділ</td>
                 <td th:text="${vacansion.posada}">Вакантна посада</td>
                 <td class="text-center" th:text="${vacansion.getCount()}">Чисельність</td>
-                <td class="text-center" th:text="${vacansion.getCreated_on()}">Дата створенння</td>
+                <td class="text-center" th:text="${vacansion.getCreatedOn()}">Дата створенння</td>
                 <td class="text-center" th:text="${vacansion.status}">Статус</td>
                 <td class="text-center">
                     <a th:href="@{/update/{id}(id=${vacansion.getId()})}" class="btn btn-primary">Update</a>
@@ -56,6 +56,9 @@
             </tr>
             </tbody>
         </table>
+        <div>
+            Кількість записів: <label th:text="${total}"></label>
+        </div>
         <div th:replace="fragments/pagination :: pagination">Pagination</div>
         <div class="col-auto">
             <hr>

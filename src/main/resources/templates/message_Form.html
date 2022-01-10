@@ -13,12 +13,13 @@
         <div class="d-flex justify-content-center">
             <div class="row">
                 <br>
-
                 <form method="POST" action="#" th:action="@{/send}" th:object="${messageSend}" class="mt-4 mb-4">
                     <div class="col">
 
                         <input required type="email" name="email" placeholder="Введіть електронну адресу"
                                class="form-control mb-4">
+<!--                        <label class="control-label" for="email"> Email </label>-->
+<!--                        <input id="email" class="form-control" th:text="*{email}" required autofocus="autofocus" />-->
 <!--                        <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>-->
                         <input required type="tel" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                placeholder="Введіть телефон, у вигляді 050-111-1111" class="form-control mb-4">

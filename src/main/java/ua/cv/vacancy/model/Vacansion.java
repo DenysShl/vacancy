@@ -2,11 +2,13 @@ package ua.cv.vacancy.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "vacansions")
@@ -43,4 +45,8 @@ public class Vacansion {
 
     @Column(name = "status")
     private boolean status;
+
+    public String getCreatedOn(){
+        return getCreated_on().format(DateTimeFormatter.ofPattern("dd-mm-yyyy / HH:mm:ss"));
+    }
 }

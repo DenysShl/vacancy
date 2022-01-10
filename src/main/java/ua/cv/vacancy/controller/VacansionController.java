@@ -31,6 +31,7 @@ public class VacansionController {
     public String showVacan(Model model) {
         List<Vacansion> vacansionList = service.findAllVacansion();
         model.addAttribute("result", vacansionList);
+        model.addAttribute("total", vacansionList.size());
         return "vacan";
     }
 
