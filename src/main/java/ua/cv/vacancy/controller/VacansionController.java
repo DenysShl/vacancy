@@ -5,14 +5,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ua.cv.vacancy.model.Vacansion;
 import ua.cv.vacancy.service.VacansionService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping(value = "/vacancy")
 public class VacansionController {
 
     private final VacansionService service;
@@ -39,6 +40,7 @@ public class VacansionController {
     public String searchByKeyword(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
         List<Vacansion> vacansions = service.findByKeyword(keyword);
         model.addAttribute("vacansionList", vacansions);
+        model.addAttribute("total", vacansions.size());
         return "search";
     }
 
@@ -46,6 +48,7 @@ public class VacansionController {
     public String searchByKeywordVacan(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
         List<Vacansion> vacansions = service.findByKeyword(keyword);
         model.addAttribute("result", vacansions);
+        model.addAttribute("total", vacansions.size());
         return "vacan";
     }
 
@@ -67,11 +70,12 @@ public class VacansionController {
         return "create_vacansion";
     }
 
-    @PostMapping("new")
-    public String createVacansion(@ModelAttribute("vacancy") @Validated Vacansion vacansion,
+    @PostMapping("/new")
+    public String createVacansion(@ModelAttribute("vacancy") @Valid Vacansion vacansion,
                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             System.out.println("Errors !! ");
+            return "create";
         }
         service.createNewVacansion(vacansion);
         return "redirect:/vacan";
@@ -102,6 +106,16 @@ public class VacansionController {
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
         model.addAttribute("vacansionList", listVacansion);
-        return "/index";
+        return "index";
+    }
+
+    @GetMapping("/403")
+    public String error403() {
+        return "/error/403";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 }

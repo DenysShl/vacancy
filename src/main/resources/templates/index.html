@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="ua" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-
+<html lang="ua" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+>
 <head>
     <div th:replace="fragments/header :: header_css"/>
 
@@ -22,7 +23,7 @@
         </form>
     </div>
     <hr>
-    <div th:replace="fragments/tableVacansion :: table_vacansion">Table vacansion</div>
+    <div th:replace="fragments/tableVacansion :: tablevacansion">Table vacansion</div>
     <div th:replace="fragments/pagination :: pagination">Pagination</div>
     <hr>
 </section>

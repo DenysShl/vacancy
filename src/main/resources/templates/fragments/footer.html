@@ -10,14 +10,14 @@
             <div class="row">
                 <div class="col-md-5">
                     <h5><i class="fa fa-university"> AT CHOE</i></h5>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <ul class="list-unstyled">
-<!--                                                    <li><a href="">Team</a></li>-->
-                                                    <li><a href="">About</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <!--                                                    <li><a href="">Team</a></li>-->
+                                <li><a href="">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <ul class="nav">
                         <li class="nav-item"><a href="http://oblenergo.cv.ua/vakansiyi" class="nav-link pl-0"><i
                                 class="fa fa-address-book fa-lg"> oblenergo</i></a></li>
@@ -36,13 +36,15 @@
                     <form action="#" th:action="@{/send}" th:object="${messageSend}" method="POST">
                         <div class="col-auto">
                             <fieldset class="form-group">
-                                <input required type="email" name="email" class="form-control col-md-6" id="exampleInputEmail1"
+                                <input required type="email" name="email" class="form-control col-md-6"
+                                       id="exampleInputEmail1"
                                        placeholder="Enter email">
                             </fieldset>
                         </div>
                         <div class="col-auto">
                             <fieldset class="form-group">
-                                <input required type="tel" name="phoneNumber" class="form-control col-md-6" id="exampleInputTel"
+                                <input required type="tel" name="phoneNumber" class="form-control col-md-6"
+                                       id="exampleInputTel"
                                        placeholder="Enter phone number, у вигляді 050-111-1111">
                             </fieldset>
                         </div>
@@ -61,7 +63,14 @@
                 </div>
             </div>
             <div align="center">
-                <h9 class="text-md-right"> © 2021 Copyright: @shd</h9>
+                <br>
+                <h9 class="text-md-right">   &copy; 2021 Copyright: @shd</h9>
+<!--                <hr color="#d8e6f3">-->
+                <span sec:authorize="isAuthenticated()">
+                     | Logged user: <span sec:authentication="name"></span> |
+                      Roles: <span sec:authentication="principal.authorities"></span> |
+                     <a th:href="@{/logout}">Sign Out</a>
+                </span>
                 <hr color="#d8e6f3">
             </div>
         </div>
