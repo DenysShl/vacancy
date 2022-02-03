@@ -9,8 +9,6 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 /**
- * Service class for {@link ua.cv.vacancy.model}
- *
  * @version 1.0
  * @autor shd on 24.11.2021
  * @created 24.11.2021 - 23:39
@@ -26,12 +24,12 @@ public class User {
     private Long id;
 
     @Column(name = "login")
-    @NotEmpty
+    @NotEmpty(message = "Login should not be empty")
     @Size(min = 5, message = "Login size should be min 5 characters")
     private String login;
 
     @Column(name = "password")
-    @NotEmpty
+    @NotEmpty(message = "Password should not be empty")
     @Size(min = 8, message = "Password size should be min 8 characters")
     private String password;
 
@@ -42,11 +40,10 @@ public class User {
     private String lastName;
 
     @Column(name = "patronymic")
-    @NotEmpty
     private String patronymic;
 
     @Column(name = "email")
-    @NotEmpty
+    @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
 
